@@ -1463,6 +1463,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 2076055561}
   _joystick: {fileID: 792227979}
   _moveSpeed: 7
+  forceText: {fileID: 2012173085}
+  health: 0
 --- !u!54 &2076055561
 Rigidbody:
   m_ObjectHideFlags: 0

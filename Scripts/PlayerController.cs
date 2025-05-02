@@ -13,6 +13,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI forceText; 
     public int health = 0; 
 
+    private void Start()
+    {
+        if (forceText == null)
+        {
+            Debug.LogError("ForceText не присоединен в инспекторе!");
+        }
+        else
+        {
+            forceText.text = health.ToString();
+        }
+    }
+
     private void FixedUpdate()
     {
         _rigidbody.linearVelocity = new Vector3(_joystick.Horizontal * _moveSpeed, _rigidbody.linearVelocity.y, _joystick.Vertical * _moveSpeed);
@@ -28,10 +40,14 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Friend"))
         {
             Friend friend = collision.gameObject.GetComponent<Friend>();
-            int healthFriend = friend._health; 
-            health += healthFriend;
-            forceText.text = health.ToString(); 
-            Destroy(collision.gameObject); 
+            if (friend != null)
+            {
+                int healthFriend = friend._health; 
+                health += healthFriend;
+
+                forceText.text = health.ToString(); 
+                Destroy(collision.gameObject); 
+            }
         }
     }
 }
