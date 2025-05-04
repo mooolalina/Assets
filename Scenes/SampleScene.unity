@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 248212714}
   - component: {fileID: 248212713}
   - component: {fileID: 248212712}
+  - component: {fileID: 248212716}
   m_Layer: 0
   m_Name: Friend
   m_TagString: Friend
@@ -331,6 +332,20 @@ Transform:
   - {fileID: 322799892}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &248212716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248212711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba0f4596c0ec4f48a34ca076207cd6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 10
+  healthText: {fileID: 1773284355}
 --- !u!1 &322799891
 GameObject:
   m_ObjectHideFlags: 0
