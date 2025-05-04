@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour {
 
     private void Start() {
         _health_enemy = Random.Range(1, 51);
-        enemyhealthText.text = _health_enemy.ToString(); 
+        UpdateHealthText();
         friends = GameObject.FindGameObjectsWithTag("Friend");
     }
 
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour {
             Friend friend = collision.gameObject.GetComponent<Friend>(); 
             int healthFriend = friend._health; 
             _health_enemy += healthFriend; 
-            enemyhealthText.text = _health_enemy.ToString(); 
+            UpdateHealthText(); 
             Destroy(collision.gameObject); 
         }
     }
@@ -65,9 +65,19 @@ public class Enemy : MonoBehaviour {
 
     public void Hit(int damage) {
         _health_enemy -= damage; 
+        UpdateHealthText();
+        if (!IsAlive()) {
+            Eat(); 
+        }
     }
 
     public void Eat() {
         Destroy(gameObject);
+    }
+
+    private void UpdateHealthText() {
+        if (enemyhealthText != null) {
+            enemyhealthText.text = _health_enemy.ToString(); 
+        }
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; 
+using TMPro;
 
 [RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
 public class PlayerController : MonoBehaviour
@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI forceText; 
     public int health = 0; 
+
+    public GameObject WinPanel; 
+    public GameObject LosePanel; 
 
     private void Start()
     {
@@ -57,21 +60,26 @@ public class PlayerController : MonoBehaviour
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
-                if (health > enemy._health_enemy)
+                int healthEnemy = enemy._health_enemy;
+
+                enemy.Hit(health);
+                health -= healthEnemy;
+                forceText.text = health.ToString();
+
+                if (!enemy.IsAlive())
                 {
-                    enemy.Eat(); 
-                    health += enemy._health_enemy; 
-                    forceText.text = health.ToString(); 
+                    Destroy(collision.gameObject); 
+                    forceText.text = health.ToString();
+                    Time.timeScale = 0; 
+                    WinPanel.SetActive(true); 
                 }
                 else
                 {
-                    enemy.Hit(health);
-                    health -= enemy._health_enemy; 
-                    forceText.text = health.ToString();
-
                     if (health <= 0)
                     {
                         Debug.Log("Игрок проиграл!");
+                        Time.timeScale = 0; 
+                        LosePanel.SetActive(true); 
                     }
                 }
             }

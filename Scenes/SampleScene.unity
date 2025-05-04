@@ -527,6 +527,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _friendPrefab: {fileID: 5320837346334080759, guid: 45e07da1a88e440458769efecdb022e7, type: 3}
+  LosePanel: {fileID: 659071778}
+  WinPanel: {fileID: 1854389314}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,7 +1397,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 771980870}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 330585549}
+        m_TargetAssemblyTypeName: SpawnFriends, Assembly-CSharp
+        m_MethodName: ReloadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &771980870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2122,7 +2136,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1162416045}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 330585549}
+        m_TargetAssemblyTypeName: SpawnFriends, Assembly-CSharp
+        m_MethodName: ReloadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1162416045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3145,6 +3171,8 @@ MonoBehaviour:
   _moveSpeed: 45
   forceText: {fileID: 2012173085}
   health: 0
+  WinPanel: {fileID: 1854389314}
+  LosePanel: {fileID: 659071778}
 --- !u!54 &2076055561
 Rigidbody:
   m_ObjectHideFlags: 0
