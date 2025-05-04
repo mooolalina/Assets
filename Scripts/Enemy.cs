@@ -66,4 +66,8 @@ public class Enemy : MonoBehaviour {
     public void Hit(int damage) {
         _health_enemy -= damage; 
     }
+
+    public void Eat() {
+        Destroy(gameObject);
+    }
 }

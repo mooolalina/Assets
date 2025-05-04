@@ -27,16 +27,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Получаем направление движения на основе джойстика
         Vector3 direction = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical).normalized;
 
-        // Если джойстик не в центре
         if (direction.magnitude > 0.1f)
         {
-            // Добавляем силу к Rigidbody
             _rigidbody.AddForce(direction * _moveSpeed);
 
-            // Поворачиваем объект в сторону движения
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
@@ -54,6 +50,30 @@ public class PlayerController : MonoBehaviour
 
                 forceText.text = health.ToString(); 
                 Destroy(collision.gameObject); 
+            }
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                if (health > enemy._health_enemy)
+                {
+                    enemy.Eat(); 
+                    health += enemy._health_enemy; 
+                    forceText.text = health.ToString(); 
+                }
+                else
+                {
+                    enemy.Hit(health);
+                    health -= enemy._health_enemy; 
+                    forceText.text = health.ToString();
+
+                    if (health <= 0)
+                    {
+                        Debug.Log("Игрок проиграл!");
+                    }
+                }
             }
         }
     }
