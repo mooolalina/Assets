@@ -630,6 +630,7 @@ GameObject:
   - component: {fileID: 643428991}
   - component: {fileID: 643428990}
   - component: {fileID: 643428989}
+  - component: {fileID: 643428993}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -727,6 +728,23 @@ Transform:
   - {fileID: 1678722583}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &643428993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643428988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8ceef5797ee26419115aaae07296de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health_enemy: 28
+  enemyhealthText: {fileID: 1853821574}
+  playerController: {fileID: 2076055560}
+  nearest: {fileID: 5320837346334080759, guid: 45e07da1a88e440458769efecdb022e7, type: 3}
+  _enemySpeed: 25
 --- !u!1 &684635252
 GameObject:
   m_ObjectHideFlags: 0
