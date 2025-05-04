@@ -15,7 +15,8 @@ public class MoveCamera : MonoBehaviour
 
     void LateUpdate() 
     {
-        Vector3 newCamPosition = player.position + offset;
+        Vector3 newCamPosition = player.position + player.TransformDirection(offset);
         transform.position = Vector3.Lerp(transform.position, newCamPosition, camPositionSpeed * Time.deltaTime);
+        transform.LookAt(player);
     }
 }

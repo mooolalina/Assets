@@ -324,7 +324,7 @@ Transform:
   m_GameObject: {fileID: 248212711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 476.2, y: 23.3, z: 398.5}
+  m_LocalPosition: {x: 467.1, y: 23.3, z: 441.5}
   m_LocalScale: {x: 20.82217, y: 22.56352, z: 22.968246}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1017,17 +1017,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
   m_PrefabInstance: {fileID: 792227977}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &792227979 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
-  m_PrefabInstance: {fileID: 792227977}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792227980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &792227980 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
@@ -1052,6 +1041,17 @@ MonoBehaviour:
   snapY: 0
   background: {fileID: 0}
   handle: {fileID: 0}
+--- !u!114 &792227982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 792227977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792227980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,7 +1565,7 @@ Transform:
   m_GameObject: {fileID: 2076055555}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 442.1, y: 37.2, z: 485.6}
+  m_LocalPosition: {x: 403, y: 37.2, z: 354.9}
   m_LocalScale: {x: 50.307262, y: 48.66152, z: 50.18401}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1584,8 +1584,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 2076055561}
-  _joystick: {fileID: 792227979}
-  _moveSpeed: 7
+  _joystick: {fileID: 792227982}
+  _moveSpeed: 5
   forceText: {fileID: 2012173085}
   health: 0
 --- !u!54 &2076055561
@@ -1612,8 +1612,8 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
+  m_Interpolate: 1
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &2137027275
 GameObject:
