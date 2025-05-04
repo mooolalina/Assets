@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,11 +27,18 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.linearVelocity = new Vector3(_joystick.Horizontal * _moveSpeed, _rigidbody.linearVelocity.y, _joystick.Vertical * _moveSpeed);
-        
-        if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
+        // Получаем направление движения на основе джойстика
+        Vector3 direction = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical).normalized;
+
+        // Если джойстик не в центре
+        if (direction.magnitude > 0.1f)
         {
-            transform.rotation = Quaternion.LookRotation(_rigidbody.linearVelocity);
+            // Добавляем силу к Rigidbody
+            _rigidbody.AddForce(direction * _moveSpeed);
+
+            // Поворачиваем объект в сторону движения
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
     }
 
